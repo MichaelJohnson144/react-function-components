@@ -1,0 +1,58 @@
+const eslintrcConfig = {
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:tailwindcss/recommended',
+    'plugin:testing-library/react',
+    'plugin:jest-dom/recommended',
+    'plugin:storybook/recommended',
+    'prettier',
+  ],
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    allowReserved: true,
+    ecmaFeatures: {
+      globalReturn: true,
+      impliedStrict: true,
+      js: true,
+      jsx: true,
+      ts: true,
+      tsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint', 'testing-library', 'jest-dom'],
+  rules: {
+    'object-curly-spacing': ['error', 'always'],
+    semi: ['error', 'always'],
+    'eol-last': ['error', 'always'],
+    'react/react-in-jsx-scope': 'off',
+    'testing-library/await-async-events': 'error',
+    'testing-library/await-async-queries': 'error',
+    'testing-library/await-async-utils': 'error',
+    'testing-library/no-await-sync-events': 'error',
+    'testing-library/no-await-sync-queries': 'error',
+    'testing-library/no-render-in-lifecycle': 'error',
+    'testing-library/no-wait-for-multiple-assertions': 'error',
+    'testing-library/prefer-explicit-assert': 'error',
+    'testing-library/prefer-presence-queries': 'error',
+    'testing-library/prefer-screen-queries': 'error',
+  },
+};
+
+module.exports = eslintrcConfig;
