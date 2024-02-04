@@ -1,0 +1,29 @@
+# You can learn about ignoring files here: "https://help.github.com/articles/ignoring-files/"
+
+# dependencies
+/node_modules/
+*.pnp
+*.pnp.js
+
+# testing
+/coverage/
+
+# production
+/dist/
+/storybook-static/
+
+# misc
+/.idea/
+/.vscode/
+.DS_Store
+*.pem
+
+# debug
+*.log
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+/src/vite-env.d.ts
