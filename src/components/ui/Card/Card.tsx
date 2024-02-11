@@ -73,10 +73,9 @@ const Card = ({
       className={`${
         className ?? ''
       } relative overflow-hidden rounded-lg bg-[#002F4D]/5 p-6 backdrop-blur dark:bg-[#002F4D]/60 sm:max-w-screen-sm lg:p-8`}
-      /* To accommodate the dimensions of mobile devices across various browsers,
-       including Google Chrome, Mac Safari,
-       Microsoft Edge, Firefox, and others,
-       add the width utility class, `w-11/12` to the `ClassName`. */
+      /* To ensure optimal display on mobile devices across various browsers within a responsive and adaptive grid system,
+       including one with four cards, consider applying the `w-11/12`
+       width utility class to the `ClassName.` */
     >
       <div className={'flex items-center justify-between'}>
         <div>
