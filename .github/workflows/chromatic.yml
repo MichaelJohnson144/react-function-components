@@ -1,0 +1,53 @@
+name: Chromatic
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/components/**'
+  workflow_dispatch:
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23.9.0'
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          yarn --version
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .pnp.cjs
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies (Yarn PnP)
+        run: yarn install --immutable
+
+      - name: Publish to Chromatic
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: |
+          echo "Current branch: $(git rev-parse --abbrev-ref HEAD)"
+          echo "Total commits: $(git rev-list --count HEAD)"
+          git log --oneline -n 5
+          yarn chromatic --debug

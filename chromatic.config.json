@@ -1,0 +1,9 @@
+{
+  "autoAcceptChanges": "main",
+  "exitOnceUploaded": true,
+  "exitZeroOnChanges": true,
+  "externals": ["public/**"],
+  "onlyChanged": true,
+  "skip": "dependabot/**",
+  "untraced": ["package.json", "yarn.lock"]
+}

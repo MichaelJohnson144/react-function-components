@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import 'tailwindcss';
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html,
+  body {
+    @apply list-none scroll-smooth text-center text-base antialiased dark:bg-gray-950;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-bebas-neue: 'Bebas Neue', system-ui, sans-serif;
+  --font-open-sans: 'Open Sans', system-ui, sans-serif;
+  --font-sans:
+    'Raleway', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+
+  --animate-ripple: ripple 700ms forwards;
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+}
